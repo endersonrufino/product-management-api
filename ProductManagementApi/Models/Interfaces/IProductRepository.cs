@@ -1,4 +1,4 @@
-﻿using ProductManagementApi.Models;
+﻿using ProductManagementApi.Models.Entities;
 
 namespace ProductManagementApi.Models.Interfaces
 {

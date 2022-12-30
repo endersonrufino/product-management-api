@@ -1,5 +1,5 @@
 ﻿using ProductManagementApi.Infrastructure.Contexts;
-using ProductManagementApi.Models;
+using ProductManagementApi.Models.Entities;
 using ProductManagementApi.Models.Interfaces;
 
 namespace ProductManagementApi.Infrastructure.Repositories

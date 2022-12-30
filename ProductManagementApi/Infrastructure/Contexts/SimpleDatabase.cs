@@ -1,4 +1,4 @@
-﻿using ProductManagementApi.Models;
+﻿using ProductManagementApi.Models.Entities;
 
 namespace ProductManagementApi.Infrastructure.Contexts
 {
@@ -6,11 +6,29 @@ namespace ProductManagementApi.Infrastructure.Contexts
     {
         private List<Product> _produtos { get; set; }
 
+        public SimpleDatabase()
+        {
+
+            InitialCharge();
+        }
+
+        public void InitialCharge()
+        {
+            if (_produtos == null || _produtos.Count == 0)
+            {
+                _produtos = new List<Product>
+                {
+                    new Product("Arroz", true, DateTime.Now, DateTime.Now, 1, "Tio João", "01234567890123"),
+                    new Product("Feijão", false, DateTime.Now, DateTime.Now, 2, "Camil", "00234567890123")
+                };
+            }
+        }
+
         public List<Product> GetProducts()
         {
             return _produtos;
         }
-        
+
         public Product GetProductById(Guid id)
         {
             return _produtos.FirstOrDefault(x => x.ProductId == id);
