@@ -15,6 +15,8 @@ namespace ProductManagementApi.Services
 
         public void AddProduct(ProductDto product)
         {
+            IsProductValid(product);
+
             var entity = product.ConvertEntity();
 
             _repository.AddProduct(entity);
@@ -46,6 +48,34 @@ namespace ProductManagementApi.Services
             var entity = product.ConvertEntity();
 
             _repository.UpdateProduct(entity);
+        }
+
+        private void IsProductValid(ProductDto product)
+        {
+            if (string.IsNullOrEmpty(product.Description))
+            {
+                throw new Exception("The description product is invalid");
+            }
+
+            //if (product.ManufacturingDate)
+            //{
+            //    throw new Exception("The description product is invalid");
+            //}
+
+            //if (string.IsNullOrEmpty(product.Description))
+            //{
+            //    throw new Exception("The description product is invalid");
+            //}
+
+            //if (string.IsNullOrEmpty(product.Description))
+            //{
+            //    throw new Exception("The description product is invalid");
+            //}
+
+            //if (string.IsNullOrEmpty(product.Description))
+            //{
+            //    throw new Exception("The description product is invalid");
+            //}            
         }
     }
 }
