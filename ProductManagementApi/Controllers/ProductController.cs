@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using ProductManagementApi.Models.Dtos;
 using ProductManagementApi.Models.Interfaces;
+using System.Net;
 
 namespace ProductManagementApi.Controllers
 {
@@ -19,47 +21,128 @@ namespace ProductManagementApi.Controllers
         [HttpGet]
         public IActionResult GetProducts()
         {
-            var products = _productService.GetProducts();
+            try
+            {
+                var products = _productService.GetProducts();
 
-            return Ok(products);
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                return new ContentResult()
+                {
+                    Content = JsonConvert.SerializeObject(ex),
+                    ContentType = "application/json",
+                    StatusCode = (int)HttpStatusCode.InternalServerError
+                };
+            }
         }
 
         [HttpGet("{id}")]
         public IActionResult GetProduct(Guid id)
         {
-            var product = _productService.GetById(id);
+            try
+            {
+                var product = _productService.GetById(id);
 
-            return Ok(product);
+                return Ok(product);
+            }
+            catch (Exception ex)
+            {
+                return new ContentResult()
+                {
+                    Content = JsonConvert.SerializeObject(ex),
+                    ContentType = "application/json",
+                    StatusCode = (int)HttpStatusCode.InternalServerError
+                };
+            }
+        }
+
+        [HttpGet]
+        [Route("/products/filterProducts")]
+        public IActionResult FilterProductsByNameAndExpirationDateAndManufacturingDate(string name, DateTime expirationDate, DateTime manufacturingDate)
+        {
+            try
+            {
+                var product = _productService.FilterProducts(name, expirationDate, manufacturingDate);
+
+                return Ok(product);
+            }
+            catch (Exception ex)
+            {
+                return new ContentResult()
+                {
+                    Content = JsonConvert.SerializeObject(ex),
+                    ContentType = "application/json",
+                    StatusCode = (int)HttpStatusCode.InternalServerError
+                };
+            }            
         }
 
         [HttpPost]
         public IActionResult NewProduct([FromBody] ProductDto product)
         {
-            _productService.AddProduct(product);
+            try
+            {
+                _productService.AddProduct(product);
 
-            var response = new ResponseApi("Success", "Product successfully registered");
+                var response = new ResponseApi("Success", "Product successfully registered");
 
-            return Ok(response);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return new ContentResult()
+                {
+                    Content = JsonConvert.SerializeObject(ex),
+                    ContentType = "application/json",
+                    StatusCode = (int)HttpStatusCode.InternalServerError
+                };
+            }           
         }
 
         [HttpPut]
         public IActionResult UpdateProduct([FromBody] ProductDto product)
         {
-            _productService.UpdateProduct(product);
+            try
+            {
+                _productService.UpdateProduct(product);
 
-            var response = new ResponseApi("Success", "Product updated successfully");
+                var response = new ResponseApi("Success", "Product updated successfully");
 
-            return Ok(response);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return new ContentResult()
+                {
+                    Content = JsonConvert.SerializeObject(ex),
+                    ContentType = "application/json",
+                    StatusCode = (int)HttpStatusCode.InternalServerError
+                };
+            }           
         }
 
         [HttpDelete]
         public IActionResult DeleteProduct(ProductDto product)
         {
-            _productService.DeleteProduct(product);
+            try
+            {
+                _productService.DeleteProduct(product);
 
-            var response = new ResponseApi("Success", "Product deleted successfully");
+                var response = new ResponseApi("Success", "Product deleted successfully");
 
-            return Ok(response);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return new ContentResult()
+                {
+                    Content = JsonConvert.SerializeObject(ex),
+                    ContentType = "application/json",
+                    StatusCode = (int)HttpStatusCode.InternalServerError
+                };
+            }            
         }
 
         private class ResponseApi

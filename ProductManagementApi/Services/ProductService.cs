@@ -39,12 +39,19 @@ namespace ProductManagementApi.Services
         }
 
         public List<ProductDto> GetProducts()
-        {
+        {            
             return Product.ConvertEntities(_repository.GetProducts());
+        }
+
+        public List<ProductDto> FilterProducts(string name, DateTime expirationDate, DateTime manufacturingDate)
+        {
+            return Product.ConvertEntities(_repository.FilterProducts(name, expirationDate, manufacturingDate));
         }
 
         public void UpdateProduct(ProductDto product)
         {
+            IsProductValid(product);
+
             var entity = product.ConvertEntity();
 
             _repository.UpdateProduct(entity);
@@ -54,28 +61,13 @@ namespace ProductManagementApi.Services
         {
             if (string.IsNullOrEmpty(product.Description))
             {
-                throw new Exception("The description product is invalid");
+                throw new Exception("The description product is invalid.");
             }
 
-            //if (product.ManufacturingDate)
-            //{
-            //    throw new Exception("The description product is invalid");
-            //}
-
-            //if (string.IsNullOrEmpty(product.Description))
-            //{
-            //    throw new Exception("The description product is invalid");
-            //}
-
-            //if (string.IsNullOrEmpty(product.Description))
-            //{
-            //    throw new Exception("The description product is invalid");
-            //}
-
-            //if (string.IsNullOrEmpty(product.Description))
-            //{
-            //    throw new Exception("The description product is invalid");
-            //}            
+            if (product.ManufacturingDate == product.ExpirationDate || product.ManufacturingDate > product.ExpirationDate)
+            {
+                throw new Exception("The manufacturing date cannot be greater than or equal to the expiration date.");
+            }                        
         }
     }
 }

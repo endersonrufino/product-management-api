@@ -18,8 +18,8 @@ namespace ProductManagementApi.Infrastructure.Contexts
             {
                 _produtos = new List<Product>
                 {
-                    new Product("Arroz", true, DateTime.Now, DateTime.Now, 1, "Tio João", "01234567890123"),
-                    new Product("Feijão", false, DateTime.Now, DateTime.Now, 2, "Camil", "00234567890123")
+                    new Product("Arroz", true, DateTime.Now, DateTime.Now, 1, "Camil", "01234567890123"),
+                    new Product("Feijão", false, DateTime.Now, DateTime.Now, 2, "Tio João", "00234567890123")
                 };
             }
         }
@@ -32,6 +32,30 @@ namespace ProductManagementApi.Infrastructure.Contexts
         public Product GetProductById(Guid id)
         {
             return _produtos.FirstOrDefault(x => x.ProductId == id);
+        }
+
+        public List<Product> FilterProducts(string name, DateTime expirationDate, DateTime manufacturingDate)
+        {
+            var products = _produtos.AsQueryable();
+
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                products = products.Where(x => x.Description.ToUpper().Contains(name.ToUpper()));
+            }
+
+            if (manufacturingDate != DateTime.MinValue)
+            {
+                products = products.Where(x => x.ManufacturingDate.Date >= manufacturingDate.Date && x.ManufacturingDate.Date <= manufacturingDate.Date);
+            }
+
+            if (expirationDate != DateTime.MinValue)
+            {
+                products = products.Where(x => x.ExpirationDate.Date >= expirationDate.Date && x.ExpirationDate.Date <= expirationDate.Date);
+
+            }
+
+            return products.Where(x => x.Active == true).ToList();            
         }
 
         public void AddProduct(Product product)
@@ -57,6 +81,10 @@ namespace ProductManagementApi.Infrastructure.Contexts
             if (existingProduct != null)
             {
                 _produtos.Remove(existingProduct);
+
+                existingProduct.Active= false;
+
+                _produtos.Add(existingProduct);
             }
         }
     }

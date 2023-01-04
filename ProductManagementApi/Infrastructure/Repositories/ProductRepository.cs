@@ -28,6 +28,11 @@ namespace ProductManagementApi.Infrastructure.Repositories
             return _database.GetProducts();
         }
 
+        public List<Product> FilterProducts(string name, DateTime expirationDate, DateTime manufacturingDate)
+        {
+            return _database.FilterProducts(name, expirationDate, manufacturingDate);
+        }
+
         public void AddProduct(Product product)
         {
             _database.AddProduct(product);

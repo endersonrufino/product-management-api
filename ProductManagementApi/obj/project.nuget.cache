@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "DIRWSCRhEMmEuf7g5kjVKNWauiIECeVCXU9Yk+bWHf0vR7nPBK2q+oOgdqCMgvTxuMWU/fx3XFxi0yVJStwtGg==",
+  "dgSpecHash": "j5UxPd35dVPkrDK6zRnqfvY9ZHDk4HNtglhpHPB5Os5eiEPoglhQCwOQf1OW3W8N62Z3rtILDokgXlzPfm11Lg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ender\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.1\\microsoft.aspnetcore.openapi.7.0.1.nupkg.sha512",
     "C:\\Users\\ender\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\ender\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\ender\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\ender\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\ender\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\ender\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

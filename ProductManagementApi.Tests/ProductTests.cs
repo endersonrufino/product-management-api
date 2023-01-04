@@ -27,8 +27,10 @@ namespace ProductManagementApi.Tests
                 SupplierDescription = "Tio João",
                 SupplierCNPJ = "01234567890123"
             }));
+            
+            Assert.Equal("The description product is invalid.", exception.Message);
 
-            Assert.Equal("The description product is invalid", exception.Message);
+            Assert.Equal("The manufacturing date cannot be greater than or equal to the expiration date.", exception.Message);
         }
     }
 }

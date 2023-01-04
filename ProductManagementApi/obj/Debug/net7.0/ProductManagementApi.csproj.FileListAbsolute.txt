@@ -31,3 +31,4 @@ C:\users\ender\projects\product-management-api\ProductManagementApi\obj\Debug\ne
 C:\users\ender\projects\product-management-api\ProductManagementApi\obj\Debug\net7.0\ProductManagementApi.pdb
 C:\users\ender\projects\product-management-api\ProductManagementApi\obj\Debug\net7.0\ProductManagementApi.genruntimeconfig.cache
 C:\users\ender\projects\product-management-api\ProductManagementApi\obj\Debug\net7.0\ref\ProductManagementApi.dll
+C:\Users\ender\projects\product-management-api\ProductManagementApi\bin\Debug\net7.0\Newtonsoft.Json.dll
