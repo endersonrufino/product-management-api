@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Moq;
 using ProductManagementApi.Infrastructure.Contexts;
 using ProductManagementApi.Infrastructure.Repositories;
 using ProductManagementApi.Models.Dtos;
@@ -15,7 +16,7 @@ namespace ProductManagementApi.Tests
         public ProductTests()
         {
             productService = new ProductService(new Mock<IProductRepository>().Object);
-            _database= new SimpleDatabase();
+            _database = new SimpleDatabase();
             _productRepository = new ProductRepository();
 
             _database.InitialCharge();
@@ -34,10 +35,10 @@ namespace ProductManagementApi.Tests
                 SupplierDescription = "Tio João",
                 SupplierCNPJ = "01234567890123"
             }));
-            
-            Assert.Equal("The description product is invalid.", exception.Message);            
+
+            Assert.Equal("The description product is invalid.", exception.Message);
         }
-        
+
         [Fact]
         public void Add_Product_Manufacturing_Date_Greater_Than_Expiration_Date()
         {
@@ -86,12 +87,34 @@ namespace ProductManagementApi.Tests
         public void Delete_Product()
         {
             var product = _productRepository.GetProducts().FirstOrDefault();
-            
+
             _productRepository.DeleteProduct(product);
 
             var productDeleted = _productRepository.GetById(product.ProductId);
 
             Assert.True(productDeleted.Active == false);
-        }        
+        }
+
+        [Fact]
+        public void Update_Product()
+        {
+            var product = _productRepository.GetProducts().FirstOrDefault();
+
+            var description = "Farinha Amarela";
+
+            _productRepository.UpdateProduct(new Models.Entities.Product(
+                product.ProductId, 
+                description, 
+                product.Active,
+                product.ManufacturingDate, 
+                product.ExpirationDate,
+                product.SupplierId,
+                product.SupplierDescription,
+                product.SupplierCNPJ));
+
+            var productUpdated = _productRepository.GetById(product.ProductId);
+
+            Assert.True(productUpdated.Description.Equals(description));
+        }
     }
 }
