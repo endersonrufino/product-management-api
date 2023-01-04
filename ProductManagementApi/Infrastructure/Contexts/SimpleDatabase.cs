@@ -55,7 +55,7 @@ namespace ProductManagementApi.Infrastructure.Contexts
 
             }
 
-            return products.Where(x => x.Active == true).ToList();            
+            return products.Where(x => x.Active == true).ToList();
         }
 
         public void AddProduct(Product product)
@@ -78,11 +78,16 @@ namespace ProductManagementApi.Infrastructure.Contexts
         {
             var existingProduct = GetProductById(id);
 
+            if (existingProduct == null)
+            {
+                throw new Exception("Product not found.");
+            }
+
             if (existingProduct != null)
             {
                 _produtos.Remove(existingProduct);
 
-                existingProduct.Active= false;
+                existingProduct.Active = false;
 
                 _produtos.Add(existingProduct);
             }

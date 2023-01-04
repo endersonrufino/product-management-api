@@ -17,7 +17,7 @@ namespace ProductManagementApi.Services
         {
             IsProductValid(product);
 
-            var entity = product.ConvertEntity();
+            var entity = product.ConvertNewProduct();
 
             _repository.AddProduct(entity);
         }
@@ -30,8 +30,13 @@ namespace ProductManagementApi.Services
         }
 
         public ProductDto GetById(Guid id)
-        {
+        {            
             var product = _repository.GetById(id);
+
+            if (product == null)
+            {
+                throw new Exception("Product not found.");
+            }
 
             var result = product.ConvertEntity();
 
@@ -39,7 +44,7 @@ namespace ProductManagementApi.Services
         }
 
         public List<ProductDto> GetProducts()
-        {            
+        {
             return Product.ConvertEntities(_repository.GetProducts());
         }
 
@@ -64,10 +69,10 @@ namespace ProductManagementApi.Services
                 throw new Exception("The description product is invalid.");
             }
 
-            if (product.ManufacturingDate == product.ExpirationDate || product.ManufacturingDate > product.ExpirationDate)
+            if (product.ManufacturingDate.ToString().Equals(product.ExpirationDate.ToString()) || product.ManufacturingDate > product.ExpirationDate)
             {
                 throw new Exception("The manufacturing date cannot be greater than or equal to the expiration date.");
-            }                        
+            }
         }
     }
 }

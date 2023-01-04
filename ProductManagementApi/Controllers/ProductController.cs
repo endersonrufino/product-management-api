@@ -42,7 +42,7 @@ namespace ProductManagementApi.Controllers
         public IActionResult GetProduct(Guid id)
         {
             try
-            {
+            {                
                 var product = _productService.GetById(id);
 
                 return Ok(product);
@@ -124,7 +124,7 @@ namespace ProductManagementApi.Controllers
         }
 
         [HttpDelete]
-        public IActionResult DeleteProduct(ProductDto product)
+        public IActionResult DeleteProduct([FromBody] ProductDto product)
         {
             try
             {

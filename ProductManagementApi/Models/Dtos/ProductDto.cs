@@ -28,6 +28,20 @@ namespace ProductManagementApi.Models.Dtos
             return product;
         }
 
+        public Product ConvertNewProduct()
+        {
+            var product = new Product(                    
+                    Description,
+                    Active,
+                    ManufacturingDate,
+                    ExpirationDate,
+                    SupplierId,
+                    SupplierDescription,
+                    SupplierCNPJ);
+
+            return product;
+        }
+
         public static Product ConvertEntity(ProductDto dto)
         {
             var product = new Product(
