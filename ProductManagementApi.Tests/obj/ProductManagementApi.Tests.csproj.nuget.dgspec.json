@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi.Tests\\ProductManagementApi.Tests.csproj": {}
+    "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi.Tests\\ProductManagementApi.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi.Tests\\ProductManagementApi.Tests.csproj": {
+    "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi.Tests\\ProductManagementApi.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi.Tests\\ProductManagementApi.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi.Tests\\ProductManagementApi.Tests.csproj",
         "projectName": "ProductManagementApi.Tests",
-        "projectPath": "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi.Tests\\ProductManagementApi.Tests.csproj",
+        "projectPath": "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi.Tests\\ProductManagementApi.Tests.csproj",
         "packagesPath": "C:\\Users\\ender\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi.Tests\\obj\\",
+        "outputPath": "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj": {
-                "projectPath": "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj"
+              "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj": {
+                "projectPath": "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj"
               }
             }
           }
@@ -93,14 +93,14 @@
         }
       }
     },
-    "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj": {
+    "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj",
+        "projectUniqueName": "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj",
         "projectName": "ProductManagementApi",
-        "projectPath": "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj",
+        "projectPath": "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj",
         "packagesPath": "C:\\Users\\ender\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi\\obj\\",
+        "outputPath": "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

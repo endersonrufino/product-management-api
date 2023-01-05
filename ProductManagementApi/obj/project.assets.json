@@ -510,11 +510,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj",
+      "projectUniqueName": "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj",
       "projectName": "ProductManagementApi",
-      "projectPath": "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj",
+      "projectPath": "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi\\ProductManagementApi.csproj",
       "packagesPath": "C:\\Users\\ender\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi\\obj\\",
+      "outputPath": "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "M8YgmKdw2KPi0Fvd8nTIAA5j0GNjdMQxkdfh7Mks6ZBtpMLLi6qEPYB3J6n3Lk1xPzQWcW8CbwNsLt6mlcUcWA==",
+  "dgSpecHash": "86WzUpC1q95DPlIR28yDqIPjHhJBQAAaElgWnieFJJPHCkRC9ZoaAAKP57h3TG1iirIcU3mDW4BOSdMDYU7hrw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ender\\projects\\product-management-api\\ProductManagementApi.Tests\\ProductManagementApi.Tests.csproj",
+  "projectFilePath": "C:\\Users\\ender\\Documents\\GitHub\\product-management-api\\ProductManagementApi.Tests\\ProductManagementApi.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ender\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
     "C:\\Users\\ender\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
