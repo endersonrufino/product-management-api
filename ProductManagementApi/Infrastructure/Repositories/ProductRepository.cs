@@ -28,9 +28,9 @@ namespace ProductManagementApi.Infrastructure.Repositories
             return _database.GetProducts();
         }
 
-        public List<Product> FilterProducts(string name, DateTime expirationDate, DateTime manufacturingDate)
+        public List<Product> FilterProducts(string name, DateTime expirationDate, DateTime manufacturingDate,int currentPage, int currentPageSize)
         {
-            return _database.FilterProducts(name, expirationDate, manufacturingDate);
+            return _database.FilterProducts(name, expirationDate, manufacturingDate, currentPage, currentPageSize);
         }
 
         public void AddProduct(Product product)

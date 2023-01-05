@@ -19,7 +19,12 @@ namespace ProductManagementApi.Infrastructure.Contexts
                 _produtos = new List<Product>
                 {
                     new Product("Arroz", true, DateTime.Now, DateTime.Now, 1, "Camil", "01234567890123"),
-                    new Product("Feijão", false, DateTime.Now, DateTime.Now, 2, "Tio João", "00234567890123")
+                    new Product("Feijão", true, DateTime.Now, DateTime.Now, 2, "Tio João", "00234567890123"),
+                    new Product("Coca Cola", true, DateTime.Now, DateTime.Now, 2, "Tio João", "00234567890123"),
+                    new Product("Farinha Amarela", true, DateTime.Now, DateTime.Now, 2, "Tio João", "00234567890123"),
+                    new Product("Trigo Dona Benta", true, DateTime.Now, DateTime.Now, 2, "Tio João", "00234567890123"),
+                    new Product("Pão de Forma", true, DateTime.Now, DateTime.Now, 2, "Tio João", "00234567890123"),
+                    new Product("Açucar Itamarati", true, DateTime.Now, DateTime.Now, 2, "Tio João", "00234567890123")
                 };
             }
         }
@@ -34,10 +39,9 @@ namespace ProductManagementApi.Infrastructure.Contexts
             return _produtos.FirstOrDefault(x => x.ProductId == id);
         }
 
-        public List<Product> FilterProducts(string name, DateTime expirationDate, DateTime manufacturingDate)
+        public List<Product> FilterProducts(string name, DateTime expirationDate, DateTime manufacturingDate, int currentPage, int currentPageSize)
         {
-            var products = _produtos.AsQueryable();
-
+            var products = _produtos.AsQueryable();            
 
             if (!string.IsNullOrEmpty(name))
             {
@@ -52,10 +56,11 @@ namespace ProductManagementApi.Infrastructure.Contexts
             if (expirationDate != DateTime.MinValue)
             {
                 products = products.Where(x => x.ExpirationDate.Date >= expirationDate.Date && x.ExpirationDate.Date <= expirationDate.Date);
-
             }
 
-            return products.Where(x => x.Active == true).ToList();
+            var activeRegisters = products.Where(x => x.Active == true).ToList();
+
+            return activeRegisters.Skip((currentPage - 1) * currentPageSize).Take(currentPageSize).ToList();
         }
 
         public void AddProduct(Product product)

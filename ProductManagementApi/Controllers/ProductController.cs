@@ -60,11 +60,11 @@ namespace ProductManagementApi.Controllers
 
         [HttpGet]
         [Route("/products/filterProducts")]
-        public IActionResult FilterProductsByNameAndExpirationDateAndManufacturingDate(string name, DateTime expirationDate, DateTime manufacturingDate)
+        public IActionResult FilterProductsByNameAndExpirationDateAndManufacturingDate(string name, DateTime expirationDate, DateTime manufacturingDate, int page, int pageSize)
         {
             try
             {
-                var product = _productService.FilterProducts(name, expirationDate, manufacturingDate);
+                var product = _productService.FilterProducts(name, expirationDate, manufacturingDate, page, pageSize);
 
                 return Ok(product);
             }

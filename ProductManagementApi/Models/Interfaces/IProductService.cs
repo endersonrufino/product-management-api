@@ -9,6 +9,6 @@ namespace ProductManagementApi.Models.Interfaces
         public void AddProduct(ProductDto product);
         public void UpdateProduct(ProductDto product);
         public void DeleteProduct(ProductDto product);
-        public List<ProductDto> FilterProducts(string name, DateTime expirationDate, DateTime manufacturingDate);
+        public List<ProductDto> FilterProducts(string name, DateTime expirationDate, DateTime manufacturingDate, int currentPage, int currentPageSize);
     }
 }

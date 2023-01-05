@@ -48,9 +48,9 @@ namespace ProductManagementApi.Services
             return Product.ConvertEntities(_repository.GetProducts());
         }
 
-        public List<ProductDto> FilterProducts(string name, DateTime expirationDate, DateTime manufacturingDate)
+        public List<ProductDto> FilterProducts(string name, DateTime expirationDate, DateTime manufacturingDate,  int currentPage, int currentPageSize)
         {
-            return Product.ConvertEntities(_repository.FilterProducts(name, expirationDate, manufacturingDate));
+            return Product.ConvertEntities(_repository.FilterProducts(name, expirationDate, manufacturingDate, currentPage, currentPageSize));
         }
 
         public void UpdateProduct(ProductDto product)
